@@ -1,60 +1,61 @@
 # LabourLens Documentation Hub
 
-Welcome to the comprehensive documentation suite for **LabourLens** (Final Year Project). This documentation has been structured to allow any AI agent or software engineer to understand the architecture, API contracts, database design, AI pipelines, and development workflows.
+Comprehensive engineering and architectural specifications for **LabourLens**.
 
 ---
 
-## Documentation Index
+## Master Directory Map
 
-| Document | Description |
-|---|---|
-| [**AGENTS.md**](../AGENTS.md) | **Essential Agent Guide**: Mental model, directory navigation, coding conventions, rules, and commands. |
-| [**ARCHITECTURE.md**](./ARCHITECTURE.md) | High-level system architecture, multi-tier topology, Mermaid flowcharts, communication protocols, and sub-systems. |
-| [**SYSTEM_REQUIREMENTS.md**](./SYSTEM_REQUIREMENTS.md) | Functional Requirements (FR), Non-Functional Requirements (NFR), user personas, and acceptance criteria. |
-| [**API_SPECIFICATION.md**](./API_SPECIFICATION.md) | REST endpoints specification, JSON schemas, WebSocket gateways, status codes, and error models. |
-| [**DATABASE_DESIGN.md**](./DATABASE_DESIGN.md) | Entity-Relationship (ER) diagram, PostgreSQL tables, PostGIS spatial indexing, and schema dictionary. |
-| [**AI_ML_PIPELINE.md**](./AI_ML_PIPELINE.md) | Computer vision models, YOLOv8 PPE detection, ByteTrack tracking, RTSP ingestion, and benchmark metrics. |
-| [**MOBILE_APP_SPEC.md**](./MOBILE_APP_SPEC.md) | Flutter application architecture, BLoC pattern, offline-first sync engine, GPS geofencing, and permissions. |
-| [**WEB_APP_SPEC.md**](./WEB_APP_SPEC.md) | Next.js 14+ App Router, dashboard layouts, real-time CCTV monitoring, TanStack Query, and RBAC UI guards. |
-| [**DEPLOYMENT_AND_DEVOPS.md**](./DEPLOYMENT_AND_DEVOPS.md) | Docker Compose multi-container topology, Nginx proxy, CI/CD pipeline, and environment configuration. |
-| [**SECURITY_AND_COMPLIANCE.md**](./SECURITY_AND_COMPLIANCE.md) | Worker privacy, face redaction, OSHA compliance, Argon2id hashing, and threat modeling. |
-| [**DATA_FLOW.md**](./DATA_FLOW.md) | End-to-end Mermaid sequence diagrams for attendance clock-in, PPE violation detection, and offline sync. |
-| [**PROJECT_ROADMAP.md**](./PROJECT_ROADMAP.md) | FYP milestones, deliverables, phases, academic defense requirements, and timeline. |
-| [**GLOSSARY.md**](./GLOSSARY.md) | Industrial safety, AI/CV, geospatial, and software architecture terminology. |
+### 1. Root Specifications
+- [**AGENTS.md**](../AGENTS.md): Essential guide for AI coding agents (conventions, commands, invariants).
+- [**PROJECT_CONTEXT.md**](../PROJECT_CONTEXT.md): Background, problem statement, stakeholders, and boundaries.
+- [**PROJECT_OVERVIEW.md**](../PROJECT_OVERVIEW.md): Executive overview, value propositions, and key metrics.
+- [**REQUIREMENTS.md**](../REQUIREMENTS.md): Functional and non-functional requirements matrix.
 
----
+### 2. Project Foundations (`docs/project/`)
+- [**SCOPE_AND_OBJECTIVES.md**](./project/SCOPE_AND_OBJECTIVES.md): Project goals, in-scope work packages, and constraints.
+- [**FEATURES.md**](./project/FEATURES.md): Detailed catalog of all platform features.
+- [**BUSINESS_LOGIC.md**](./project/BUSINESS_LOGIC.md): Domain rules, attendance validation, shift states, and penalty algorithms.
 
-## Tech Stack Summary
+### 3. Architecture & Infrastructure (`docs/architecture/`)
+- [**ARCHITECTURE.md**](./architecture/ARCHITECTURE.md): Multi-tier distributed architecture and component breakdown.
+- [**SYSTEM_DESIGN.md**](./architecture/SYSTEM_DESIGN.md): Design patterns, WebSocket flows, and concurrency tactics.
+- [**TECH_STACK.md**](./architecture/TECH_STACK.md): Full technology matrix (Next.js, Flutter, NestJS, Python, PostGIS).
+- [**DATABASE_SCHEMA.md**](./architecture/DATABASE_SCHEMA.md): Entity-Relationship diagram, tables, and PostGIS indexes.
+- [**API_DOCUMENTATION.md**](./architecture/API_DOCUMENTATION.md): REST endpoints and real-time WebSocket contracts.
+- [**INTEGRATION_GUIDE.md**](./architecture/INTEGRATION_GUIDE.md): Camera RTSP streams, S3/MinIO, and FCM integration.
 
-```mermaid
-mindmap
-  root((LabourLens))
-    Web Portal
-      Next.js 14+
-      TypeScript
-      Tailwind CSS
-      shadcn/ui
-      TanStack Query
-    Mobile App
-      Flutter
-      Dart
-      flutter_bloc
-      Hive Local DB
-      Geolocator
-    Backend API
-      NestJS
-      Prisma ORM
-      WebSockets
-      JWT / Argon2id
-    AI Microservice
-      Python 3.11
-      FastAPI
-      PyTorch / YOLOv8
-      ByteTrack
-      OpenCV
-    Storage & Infrastructure
-      PostgreSQL / PostGIS
-      Redis
-      MinIO / S3
-      Docker Compose
-```
+### 4. Artificial Intelligence & Vision (`docs/ai/`)
+- [**AI_MATCHING.md**](./ai/AI_MATCHING.md): Problem formulation, candidate pool ranking, and input features.
+- [**AI_MODEL_DOCUMENTATION.md**](./ai/AI_MODEL_DOCUMENTATION.md): YOLOv8 PPE detection and XGBoost ranker specs.
+- [**EXPLAINABLE_AI.md**](./ai/EXPLAINABLE_AI.md): SHAP feature attribution and visual bounding-box evidence.
+- [**MATCHING_ALGORITHM.md**](./ai/MATCHING_ALGORITHM.md): Multi-objective scoring math, sub-scores, and complexity.
+- [**DATA_PROCESSING.md**](./ai/DATA_PROCESSING.md): Dataset sources, annotations, augmentations, and features.
+- [**AI_EVALUATION.md**](./ai/AI_EVALUATION.md): Precision, recall, mAP@0.5, NDCG, and latency benchmarks.
+
+### 5. Features & Roles (`docs/features/`)
+- [**USER_ROLES.md**](./features/USER_ROLES.md): RBAC matrix (Admin, Supervisor, Safety Officer, Worker).
+- [**JOB_MANAGEMENT.md**](./features/JOB_MANAGEMENT.md): Job requisitions, shift lifecycles, and dispatching.
+- [**WORKER_MANAGEMENT.md**](./features/WORKER_MANAGEMENT.md): Worker profiles, trade taxonomy, and certifications.
+- [**TRUST_AND_VERIFICATION.md**](./features/TRUST_AND_VERIFICATION.md): Anti-spoofing, mock-location traps, and biometric defense.
+
+### 6. Design & User Experience (`docs/design/`)
+- [**UI_UX_GUIDELINES.md**](./design/UI_UX_GUIDELINES.md): Industrial design philosophy, contrast, and haptic feedback.
+- [**DESIGN_SYSTEM.md**](./design/DESIGN_SYSTEM.md): Tailwind / shadcn/ui components and Material 3 theme.
+- [**RESPONSIVE_DESIGN.md**](./design/RESPONSIVE_DESIGN.md): Breakpoints, mobile-to-video-wall adaptability.
+
+### 7. Security & Privacy (`docs/security/`)
+- [**SECURITY.md**](./security/SECURITY.md): Defense in depth, Argon2id, JWT token families, and rate limits.
+- [**PRIVACY_POLICY_REQUIREMENTS.md**](./security/PRIVACY_POLICY_REQUIREMENTS.md): GDPR compliance, facial blurring, and data minimization.
+
+### 8. Development & Operations (`docs/development/`)
+- [**CODING_STANDARDS.md**](./development/CODING_STANDARDS.md): Conventions for TypeScript, Next.js, Flutter, Python.
+- [**DEVELOPMENT_ROADMAP.md**](./development/DEVELOPMENT_ROADMAP.md): Sprint plans, Gantt chart, and deliverables.
+- [**TASK_TRACKER.md**](./development/TASK_TRACKER.md): Engineering task board and priority tracking.
+- [**TESTING_STRATEGY.md**](./development/TESTING_STRATEGY.md): Unit, integration, and E2E testing pyramid.
+- [**DEPLOYMENT_GUIDE.md**](./development/DEPLOYMENT_GUIDE.md): Local development quickstart and production Docker instructions.
+- [**CHANGELOG.md**](./development/CHANGELOG.md): Version history and notable changes.
+- [**KNOWN_ISSUES.md**](./development/KNOWN_ISSUES.md): Constraints, edge cases, and workarounds.
+- [**DECISIONS.md**](./development/DECISIONS.md): Architecture Decision Records (ADRs).
+- [**ENVIRONMENT_SETUP.md**](./development/ENVIRONMENT_SETUP.md): Toolchain prerequisites and environment variables.
+- [**AGENT_HANDOVER.md**](./development/AGENT_HANDOVER.md): Quick orientation manual for incoming AI agents.
