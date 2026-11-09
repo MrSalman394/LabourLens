@@ -9,3 +9,4 @@ Web portal providing administration, analytics dashboards, and monitoring tools 
 - Next.js (React)
 - TypeScript
 - Tailwind CSS
+

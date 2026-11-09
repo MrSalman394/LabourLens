@@ -8,3 +8,4 @@ Core REST and WebSocket API service managing authentication, business logic, int
 ## Tech Stack
 - NestJS
 - Node.js & TypeScript
+

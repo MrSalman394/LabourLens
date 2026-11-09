@@ -9,3 +9,4 @@ Microservice dedicated to computer vision, machine learning models, inference pi
 - Python
 - PyTorch / TensorFlow / OpenCV
 - FastAPI / Flask
+
