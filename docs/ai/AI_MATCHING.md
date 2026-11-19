@@ -48,3 +48,4 @@ flowchart TD
 | `historical_safety_score` | Float $[0, 100]$ | 100 minus weighted penalties for past safety infractions |
 | `has_all_mandatory_certs` | Boolean | Hard gate: worker possesses all required safety licenses |
 | `overtime_fatigue_index` | Float $[0, 1]$ | Rolling 7-day cumulative work hours to prevent exhaustion |
+

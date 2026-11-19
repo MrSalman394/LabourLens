@@ -66,3 +66,4 @@ flowchart TB
 ### 2.4 AI Microservices (`services/ai`)
 - **Vision Subsystem**: OpenCV/PyAV RTSP frame ingestion, YOLOv8 inference, ByteTrack multi-object tracking, and automated bounding-box rendering.
 - **Matching Subsystem**: Tabular machine learning model ranking candidate workers against job requisitions with SHAP explainability feature attribution.
+

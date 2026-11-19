@@ -56,3 +56,4 @@ Components wrap privileged controls with role-checking helpers:
   <LiveCameraGrid siteId={activeSiteId} />
 </RoleGate>
 ```
+

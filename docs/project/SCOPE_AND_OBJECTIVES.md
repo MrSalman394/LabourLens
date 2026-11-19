@@ -49,3 +49,4 @@ To ensure academic delivery quality and maintain clear system boundaries, the fo
 - Direct banking/clearinghouse payment processing (the system exports payroll timesheets to standard formats: CSV, Excel, JSON).
 - Proprietary camera hardware engineering (the platform integrates with industry-standard RTSP/ONVIF IP cameras).
 - Continuous GPS tracking outside of authorized shift hours (to respect worker privacy and local labor regulations).
+

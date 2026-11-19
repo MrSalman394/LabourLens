@@ -42,3 +42,4 @@
 ### 2.3 Usability & Reliability
 - **NFR-REL-01**: Core API service must maintain 99.9% availability during scheduled operational hours.
 - **NFR-UI-01**: Mobile application UI must feature high-contrast outdoor theme with large touch targets ($\ge 48\times 48\text{ px}$) operable with work gloves.
+

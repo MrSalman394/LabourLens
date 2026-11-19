@@ -63,3 +63,4 @@
   - `safety_violation_alert`: Broadcasts snapshot, severity, and camera ID when violation occurs.
   - `attendance_roster_change`: Broadcasts increments/decrements in active worker site count.
   - `emergency_broadcast`: High-priority alert notifying workers and supervisors to evacuate.
+

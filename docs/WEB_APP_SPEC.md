@@ -80,3 +80,4 @@ apps/web/
 | **Safety Officer** | `/safety`, `/cameras`, `/analytics` | Review violations, resolve incident tickets, export reports |
 | **Project Manager** | `/`, `/attendance`, `/workers`, `/analytics` | View timesheets, approve overtime, track productivity |
 | **HR / Payroll** | `/attendance`, `/workers` | Export payroll logs, view attendance records |
+

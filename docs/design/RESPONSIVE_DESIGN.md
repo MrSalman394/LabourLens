@@ -30,3 +30,4 @@ flowchart LR
 
 1. **Automatic Sunlight Mode**: Leverages ambient light sensors on mobile to dynamically boost contrast and swap subtle borders for solid 2px high-visibility outlines.
 2. **Video Wall Fullscreen Mode**: The CCTV monitoring page (`/cameras`) features a 1-click "Video Wall Mode" that strips away navigation headers and sidebars, allocating 100% of the screen real-estate to low-latency camera streams with bounding-box annotations.
+

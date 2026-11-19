@@ -94,3 +94,4 @@ Splash / Startup
 | Android & iOS | `CAMERA` | For biometric face verification and hazard photo submission |
 | Android & iOS | `USE_BIOMETRIC` / `FaceID` | Local biometric authentication on device unlock |
 | Android & iOS | `POST_NOTIFICATIONS` | Receiving high-priority safety and emergency evacuation alerts |
+

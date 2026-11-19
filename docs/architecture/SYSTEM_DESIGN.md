@@ -45,3 +45,4 @@ sequenceDiagram
 1. **Stateless Compute**: NestJS and FastAPI pods can scale horizontally behind Nginx load balancers.
 2. **Database Query Offloading**: Frequently accessed static datasets (worksites, shift templates, active geofence polygons) are cached in Redis with a 15-minute TTL.
 3. **Asynchronous Frame Ingestion**: Camera RTSP streams are sampled at 5-10 FPS into an in-memory queue, preventing thread starvation in the Python event loop.
+

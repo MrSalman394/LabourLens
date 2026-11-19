@@ -61,3 +61,4 @@ flowchart TD
 - **`HIGH`**: Missing Hard Hat in active construction zone. Highlighted notification modal.
 - **`MEDIUM`**: Missing High-Visibility Vest or Gloves in staging area. Dashboard notification badge.
 - **`LOW`**: Minor equipment deviation. Logged to daily compliance summary report.
+

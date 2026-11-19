@@ -107,3 +107,4 @@ sequenceDiagram
     end
     Mobile-->>Worker: Show notification ("All offline events synced successfully")
 ```
+

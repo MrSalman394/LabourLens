@@ -57,3 +57,4 @@ flowchart LR
 | **Model Evaluation Report** | Confusion matrix, mAP@0.5, FPS benchmarks, false positive analysis | Week 20 |
 | **Final Dissertation** | Literature review, architecture, algorithmic design, empirical results | Week 26 |
 | **Live Defense & Demo** | Live CCTV camera PPE violation detection, mobile app, and web dashboard | Week 28 |
+

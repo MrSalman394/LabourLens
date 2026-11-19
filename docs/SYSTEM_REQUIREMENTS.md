@@ -65,3 +65,4 @@ LabourLens addresses challenges in modern labor-intensive industries (constructi
 ### 4.4 Usability & Accessibility
 - **NFR-UI-01**: Mobile application UI must feature high-contrast, large-button design accessible in harsh outdoor sunlight conditions.
 - **NFR-UI-02**: The web portal must be fully responsive across desktop and tablet viewport resolutions (1024px to 4K).
+

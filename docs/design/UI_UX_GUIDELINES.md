@@ -30,3 +30,4 @@ Therefore, the UX guidelines prioritize:
 - **Mobile Clock-In Success**: Satisfying single medium haptic impact + brief green checkmark animation.
 - **Geofence Boundary Breach**: Heavy double haptic pulse + high-contrast red boundary warning.
 - **Web Safety Officer Alert**: Distinctive 800Hz two-tone audio chime when a `CRITICAL` safety violation is triggered, auto-pausing when the incident card is clicked.
+

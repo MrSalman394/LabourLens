@@ -55,3 +55,4 @@ graph TD
 - **Live Video Surveillance Grid**: Displays up to 6 simultaneous camera feeds with dynamic bounding boxes rendered in green (compliant) or red (violation).
 - **Interactive Geofence Editor**: Visual editor for drawing, resizing, and activating worksite boundaries and assigning supervisor teams.
 - **Automated Safety Reports**: Pre-formatted PDF and Excel exports ready for regulatory bodies (such as OSHA) detailing safety index trends and incident resolution times.
+

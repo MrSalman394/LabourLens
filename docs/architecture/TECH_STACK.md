@@ -28,3 +28,4 @@
 | | In-Memory Cache | Redis | 7.x Alpine | Pub/Sub messaging, session caching, and rate limiting |
 | | Object Storage | MinIO / AWS S3 | Latest | High-capacity storage for incident snapshots and video clips |
 | | Orchestration | Docker & Docker Compose | 26.x+ | Deterministic multi-container local and staging environments |
+

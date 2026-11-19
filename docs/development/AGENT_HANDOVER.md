@@ -34,3 +34,4 @@ Welcome, incoming AI Agent (Antigravity, Cursor, Claude Code, GitHub Copilot). T
 2. Formulate your plan and confirm invariants before modifying files.
 3. Run tests using standard CLI commands specified in `AGENTS.md`.
 4. Update `CHANGELOG.md` upon completing notable features.
+

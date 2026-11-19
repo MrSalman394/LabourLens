@@ -45,3 +45,4 @@ final ThemeData industrialDarkTheme = ThemeData(
 ## 3. Iconography Guidelines
 - **Web**: `lucide-react` icons (consistent 2px stroke width, 20x20px standard size).
 - **Mobile**: Lucide Flutter icons or Material Symbols Outlined.
+

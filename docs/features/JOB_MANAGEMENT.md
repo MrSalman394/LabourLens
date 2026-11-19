@@ -44,3 +44,4 @@ When creating a job requisition, the supervisor specifies:
 4. AI service computes scores, applies hard constraints, calculates SHAP explanations, and returns the top ranked candidates.
 5. Supervisor inspects the transparent score breakdown (e.g., proximity, past rating) and clicks **"Confirm & Dispatch"**.
 6. Assigned workers instantly receive push notifications on their Flutter mobile app to accept or decline the shift.
+

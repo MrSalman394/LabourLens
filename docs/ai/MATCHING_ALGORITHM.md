@@ -47,3 +47,4 @@ Where penalties are calibrated:
 - **Candidate Filtering**: $O(N)$ filter where $N$ is total pool size (typically reduced to $M \ll N$ candidates, $M \approx 100$).
 - **Scoring & Ranking**: $O(M \log M)$ to sort top-$k$ matches.
 - Total execution time is $< 50\text{ ms}$ for $N=10,000$ in memory.
+

@@ -105,3 +105,4 @@ uvicorn main:app --reload --port 8000
 1. **Do Not Overwrite Configurations Silently**: Never delete existing environment keys or replace `.gitignore` rules without checking.
 2. **Preserve Documentation Integrity**: Update `docs/` whenever introducing new endpoints, models, or environment variables.
 3. **Respect Security Boundaries**: Never commit plaintext API keys, passwords, or production secrets to Git.
+

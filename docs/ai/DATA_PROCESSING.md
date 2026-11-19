@@ -36,3 +36,4 @@ flowchart LR
 
 ### 2.2 Missing Data Strategy
 - Worker profiles missing historical attendance default to a neutral prior score ($0.50$) rather than zero, preventing starvation of newly onboarded workers.
+

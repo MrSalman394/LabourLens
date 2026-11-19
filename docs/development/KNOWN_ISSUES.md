@@ -14,3 +14,4 @@
 ### 1.3 Mobile Background Location Restrictions
 - **Symptom**: Modern Android 13+ and iOS 16+ aggressively kill long-running background location tasks to preserve battery life.
 - **Mitigation / Workaround**: LabourLens intentionally avoids continuous battery-draining GPS tracking. Location is polled on-demand exclusively during Clock-In, Clock-Out, and explicitly triggered hazard submissions.
+

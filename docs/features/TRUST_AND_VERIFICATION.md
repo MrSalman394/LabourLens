@@ -42,3 +42,4 @@ Clients submit their local timestamp for network latency calculation, but the au
 An automated daily cron job checks worker license validity:
 - If an OSHA or equipment license expires, the worker's status is automatically downgraded to `CERT_EXPIRED`.
 - The AI matching engine immediately halts recommendation of the candidate for jobs requiring that license until a renewed certificate is verified by an admin.
+

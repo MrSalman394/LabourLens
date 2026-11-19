@@ -52,3 +52,4 @@ LabourLens operates in an industrial environment where personal biometric data, 
 | **Replay Attacks** | Capturing and replaying mobile attendance API packets | API requires monotonically increasing nonce, client timestamps within $\pm 60$ seconds, and signed request payloads. |
 | **Brute-Force Login** | Automated dictionary attacks on web/mobile login | Rate-limiting enforced via Redis sliding window (5 failed attempts per IP/account triggers a 15-minute lockout). |
 | **RTSP Video Sniffing** | Intercepting unencrypted camera feeds across site Wi-Fi | Site cameras placed on segregated VLAN with RTSP over TLS (RTSPS) or VPN tunnel to edge gateway. |
+

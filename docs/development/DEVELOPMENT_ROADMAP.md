@@ -35,3 +35,4 @@ gantt
 - **Sprint 4 (Weeks 10-14)**: Python AI microservices for YOLOv8 PPE detection and XGBoost job-worker matching.
 - **Sprint 5 (Weeks 15-18)**: Next.js executive portal, live camera stream overlays, and real-time WebSocket alert feed.
 - **Sprint 6 (Weeks 19-22)**: Stress testing, security hardening, final project defense presentation, and dissertation.
+

@@ -137,3 +137,4 @@ CREATE INDEX idx_attendance_date_status ON attendance_logs (clock_in DESC, statu
 ```sql
 CREATE INDEX idx_safety_unresolved ON safety_incidents (site_id, detected_at DESC) WHERE resolved = FALSE;
 ```
+

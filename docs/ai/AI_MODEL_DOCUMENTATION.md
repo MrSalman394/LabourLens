@@ -50,3 +50,4 @@ LabourLens operates two distinct machine learning models:
 - **Hardware Profile**:
   - Cloud / Server: 8 vCPUs, 32GB RAM, 1x NVIDIA T4 / A10G GPU.
   - Edge Gateway (Optional On-Site): NVIDIA Jetson Orin Nano / AGX.
+

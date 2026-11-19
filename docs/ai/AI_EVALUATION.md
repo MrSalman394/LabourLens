@@ -33,3 +33,4 @@ Evaluated on a historical benchmark of 500 completed job postings with superviso
 ### 2.2 Fairness & Demographic Parity Audit
 - Disparate Impact Ratio across protected demographic proxies: $\ge 0.92$ (comfortably exceeding the 80% four-fifths rule for algorithmic fairness).
 - Explanations generated via SHAP demonstrate zero dependency on non-occupational traits.
+

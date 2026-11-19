@@ -65,3 +65,4 @@ graph TD
 - **Out-of-Scope (Deliberate Constraints)**:
   - Direct processing of fiat banking payments (system outputs payroll-ready timesheets and audit logs for third-party ERP/payroll ingestion).
   - Hardware manufacturing of camera sensors (system consumes standard RTSP / ONVIF video streams from off-the-shelf IP cameras).
+

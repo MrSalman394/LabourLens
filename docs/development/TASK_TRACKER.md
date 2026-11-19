@@ -21,3 +21,4 @@
 | **TSK-015** | Web | Implement live WebRTC/HLS camera grid with bounding boxes | Web Team | `P1` | :white_medium_square: Todo |
 | **TSK-016** | Web | Real-time WebSocket safety violation drawer and audio alert | Web Team | `P1` | :white_medium_square: Todo |
 | **TSK-017** | QA | End-to-end integration and load testing | QA Team | `P2` | :white_medium_square: Todo |
+

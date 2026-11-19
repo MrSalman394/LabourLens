@@ -55,3 +55,4 @@ const presignedUrl = await s3Client.getSignedUrlPromise('getObject', {
 For emergency broadcasts and critical safety violation escalations:
 1. Mobile devices register their FCM device token upon authentication (`POST /notifications/register-token`).
 2. High-priority messages trigger native heads-up notifications with custom alarm sounds on Android and iOS even if the application is backgrounded.
+

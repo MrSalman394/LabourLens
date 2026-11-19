@@ -51,3 +51,4 @@ This document defines core terminology, acronyms, and industrial concepts used t
 | **JWT** | JSON Web Token | Stateless cryptographic token standard used for authenticating API requests. |
 | **Argon2id** | Memory-hard password hashing algorithm | Winner of the Password Hashing Competition; used to secure user credentials against GPU cracking. |
 | **MinIO** | S3-compatible high-performance object storage | Self-hosted storage server used for local development to store incident snapshot images and video clips. |
+

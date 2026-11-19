@@ -39,6 +39,7 @@ services/ai/.pytest_cache/
 .env.test.local
 .env.production.local
 *.env
+!.env.example
 
 # Logs
 logs/

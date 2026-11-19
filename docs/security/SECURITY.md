@@ -37,3 +37,4 @@ flowchart TD
 - **Mandatory HTTPS**: TLS 1.3 enforced with strict HSTS (`Strict-Transport-Security: max-age=31536000; includeSubDomains`).
 - **CCTV Stream Isolation**: Camera RTSP streams are isolated on a physical or virtual industrial VLAN, communicating with the AI service over secure IPsec/WireGuard tunnels or authenticated RTSPS.
 - **API Rate Limiting**: NestJS `ThrottlerModule` backed by Redis limits unauthenticated auth attempts to 5 per minute per IP, and authenticated queries to 120 per minute.
+

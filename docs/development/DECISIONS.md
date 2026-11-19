@@ -37,3 +37,4 @@
 - **Context**: Balancing worker privacy and battery longevity against worksite accountability.
 - **Decision**: Poll GPS exclusively during explicit shift transitions (Clock-In / Clock-Out) and safety hazards.
 - **Consequences**: Eliminates invasive 24/7 worker surveillance, complies with strict labor regulations, and minimizes mobile battery consumption.
+

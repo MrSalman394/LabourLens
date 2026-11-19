@@ -38,3 +38,4 @@ flowchart TD
 ### 2.4 Web Frontend (`apps/web`)
 - **Component Tests**: React Testing Library testing rendering of KPI stat cards, alerts, and tables.
 - **E2E Tests**: Playwright scripts executing end-to-end flows: supervisor logs in, draws a geofence on the map, and saves the site.
+

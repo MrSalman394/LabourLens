@@ -10,3 +10,4 @@ src/
 ├── constants/      # Shared configuration constants
 └── utils/          # Universal helper utilities
 ```
+

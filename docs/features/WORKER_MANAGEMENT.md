@@ -61,3 +61,4 @@ Each worker entity (`worker_profiles`) encapsulates:
 
 - **Dynamic Safety Score**: Begins at 100. Deductions are automatically applied for verified computer vision PPE infractions ($ -2$ for missing vest, $ -5$ for missing helmet, $ -15$ for Red Zone entry).
 - **Incentive Thresholds**: Workers maintaining scores above 95 receive priority ranking in the AI matching algorithm for premium shifts and overtime opportunities.
+

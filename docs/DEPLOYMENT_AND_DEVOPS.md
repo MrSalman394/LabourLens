@@ -59,8 +59,8 @@ JWT_REFRESH_EXPIRES_IN=7d
 
 # --- Object Storage (S3 / MinIO) ---
 S3_ENDPOINT=http://localhost:9000
-S3_ACCESS_KEY=minioadmin
-S3_SECRET_KEY=minioadmin
+S3_ACCESS_KEY=<set-in-local-environment>
+S3_SECRET_KEY=<set-in-local-environment>
 S3_BUCKET_NAME=labourlens-media
 S3_REGION=us-east-1
 
@@ -97,3 +97,4 @@ All services expose a standardized `/health` endpoint:
 - **NestJS API**: `GET /api/v1/health` (Checks DB connectivity via Prisma, Redis ping, and S3 status).
 - **FastAPI AI**: `GET /api/v1/health` (Checks model weights loaded in VRAM, GPU memory utilization).
 - **Docker Compose Healthcheck**: Auto-restarts containers experiencing crashloops or unresponsive threadpools.
+

@@ -43,3 +43,4 @@
   def compute_iou(box_a: tuple[float, float, float, float], box_b: tuple[float, float, float, float]) -> float:
   ```
 - **Async Safety**: Never perform blocking I/O or heavy computer vision tensor operations directly in FastAPI's main async event loop. Offload to `asyncio.to_thread` or background worker pools.
+

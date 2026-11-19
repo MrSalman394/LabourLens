@@ -54,3 +54,4 @@ docker compose -f infrastructure/docker-compose.prod.yml up --build -d
 - **RAM**: 32 GB
 - **GPU**: 1x NVIDIA Tesla T4 / L4 (for multi-stream AI inference)
 - **Disk**: 500 GB NVMe SSD
+

@@ -68,3 +68,4 @@ export interface WorkerMatchScore {
   safetyScore: number;
   explanations: string[];
 }
+

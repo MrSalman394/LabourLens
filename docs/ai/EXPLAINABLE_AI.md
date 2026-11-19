@@ -45,3 +45,4 @@ For computer vision safety infractions:
 1. **Explicit Bounding-Box Overlay**: Detections explicitly highlight the exact pixels containing the person, the missing gear region (e.g. head box without hard hat), and the confidence percentage.
 2. **Zone Intersection Polygon**: For Red Zone breaches, the system draws the zone perimeter polygon and highlights the intersection coordinates between the worker's feet keypoints and the hazard polygon.
 3. **Temporal Verification**: The system stores a 5-second video buffer around the event to prove sustained non-compliance rather than a 1-frame camera occlusion.
+

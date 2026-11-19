@@ -21,3 +21,4 @@ Workplace surveillance systems can infringe on worker dignity if implemented wit
 - **High-Resolution CCTV Video**: Raw stream buffers are overwritten after 72 hours.
 - **Annotated Violation Snapshots**: Preserved for 90 days for safety review, then automatically purged by automated cleanup scripts unless tied to an active legal/regulatory OSHA inquiry.
 - **Automated Face Redaction**: Archived recordings automatically apply Gaussian blurring to all worker faces not involved in an incident.
+

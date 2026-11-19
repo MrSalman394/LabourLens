@@ -75,3 +75,4 @@ flowchart LR
 - **Vision Inference Speed**: $\ge 15\text{ FPS}$ on GPU (NVIDIA RTX / T4) using TensorRT-accelerated YOLOv8.
 - **Alert Dispatch Latency**: $< 2.5\text{ seconds}$ from camera frame capture to web dashboard notification modal.
 - **Offline Durability**: Up to 72 hours of queued mobile attendance and hazard reports without data loss.
+
