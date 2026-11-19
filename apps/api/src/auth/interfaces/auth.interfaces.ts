@@ -19,6 +19,7 @@ export interface AuthenticatedUser {
 export interface SanitizedUser {
   id: string;
   email: string;
+  displayName?: string | null;
   status: UserStatus;
   preferredLocale: string;
   roles: UserRole[];

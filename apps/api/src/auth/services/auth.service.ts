@@ -62,6 +62,7 @@ export class AuthService implements OnModuleInit {
     return {
       id: user.id,
       email,
+      displayName: user.displayName ?? user.employerProfile?.displayName ?? user.workerProfile?.displayName ?? null,
       status: user.status,
       preferredLocale: user.preferredLocale,
       roles,
@@ -343,13 +344,14 @@ export class AuthService implements OnModuleInit {
         roleAssignments: { include: { role: true } },
       },
     });
-    const emailIdentity = user?.identities.find(identity => identity.identityType === IdentityType.EMAIL);
+    const credentialIdentity = user?.identities.find(identity => Boolean(identity.passwordHash));
+    const email = user?.identities.find(identity => identity.identityType === IdentityType.EMAIL)?.normalizedValue || '';
 
-    if (!user || !emailIdentity?.passwordHash) {
+    if (!user || !credentialIdentity?.passwordHash) {
       throw new UnauthorizedException('Invalid CNIC or password');
     }
 
-    const isPasswordValid = await this.passwordService.compare(dto.password, emailIdentity.passwordHash);
+    const isPasswordValid = await this.passwordService.compare(dto.password, credentialIdentity.passwordHash);
     if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid CNIC or password');
     }
@@ -375,7 +377,7 @@ export class AuthService implements OnModuleInit {
 
     const session = await this.tokenService.createSession(
       user,
-      emailIdentity.normalizedValue,
+      email,
       roles,
       reqInfo?.userAgent,
       reqInfo?.ipAddress,
@@ -386,7 +388,7 @@ export class AuthService implements OnModuleInit {
       refreshToken: session.refreshToken,
       tokenType: 'Bearer',
       expiresIn: session.expiresIn,
-      user: this.sanitizeUser(user, emailIdentity.normalizedValue, roles),
+      user: this.sanitizeUser(user, email, roles),
     };
   }
 
@@ -553,9 +555,9 @@ export class AuthService implements OnModuleInit {
       throw new UnauthorizedException('User account not found');
     }
 
-    const primaryIdentity = user.identities.find(i => i.isPrimary) || user.identities[0];
+    const emailIdentity = user.identities.find(i => i.identityType === IdentityType.EMAIL);
     const roles = user.roleAssignments.map(a => a.role.code as UserRole);
 
-    return this.sanitizeUser(user, primaryIdentity?.normalizedValue || '', roles);
+    return this.sanitizeUser(user, emailIdentity?.normalizedValue || '', roles);
   }
 }

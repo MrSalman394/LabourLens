@@ -5,28 +5,42 @@ import * as path from 'path';
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-import { PrismaClient, UserStatus, IdentityType, UserRole } from '@prisma/client';
+import { PrismaClient, IdentityType, UserRole, UserStatus } from '@prisma/client';
 import * as argon2 from 'argon2';
 
-async function seedAdmin() {
-  const adminEmail = process.env.ADMIN_EMAIL?.trim();
-  const adminPassword = process.env.ADMIN_PASSWORD;
-  if (!adminEmail || !adminPassword) {
-    console.error('Set ADMIN_EMAIL and ADMIN_PASSWORD in the API environment before provisioning an administrator.');
+function normalizeCnic(value: string): string {
+  return value.replace(/[\s-]/g, '');
+}
+
+async function seedAdmin(): Promise<void> {
+  const cnic = process.env.ADMIN_CNIC ? normalizeCnic(process.env.ADMIN_CNIC) : '';
+  const displayName = process.env.ADMIN_NAME?.trim() || '';
+  const phone = process.env.ADMIN_PHONE?.trim() || '';
+  const password = process.env.ADMIN_PASSWORD;
+
+  if (!/^\d{13}$/.test(cnic)) {
+    console.error('Set ADMIN_CNIC to a valid 13-digit CNIC before provisioning an administrator.');
+    process.exitCode = 1;
+    return;
+  }
+  if (!displayName || displayName.length > 120 || !password) {
+    console.error('Set ADMIN_NAME (up to 120 characters) and ADMIN_PASSWORD before provisioning an administrator.');
     process.exitCode = 1;
     return;
   }
 
   const prisma = new PrismaClient();
-  const normalizedEmail = adminEmail.toLowerCase().trim();
-
-  console.log(`====================================================`);
-  console.log(`LabourLens Secure Administrative Provisioning`);
-  console.log(`====================================================`);
-  console.log(`Provisioning Admin Account: ${normalizedEmail}`);
+  let stage = 'database lookup';
 
   try {
-    // Ensure ADMIN role exists
+    const existingUser = await prisma.user.findUnique({ where: { cnic }, select: { id: true } });
+    if (existingUser) {
+      console.error('An account already uses this CNIC. No account or role changes were made.');
+      process.exitCode = 1;
+      return;
+    }
+
+    stage = 'administrator role setup';
     const adminRole = await prisma.role.upsert({
       where: { code: UserRole.ADMIN },
       update: { name: 'Platform Administrator' },
@@ -37,90 +51,69 @@ async function seedAdmin() {
       },
     });
 
-    // Check if user identity already exists
-    let identity = await prisma.userIdentity.findUnique({
-      where: { normalizedValue: normalizedEmail },
-      include: { user: true },
-    });
-
-    const passwordHash = await argon2.hash(adminPassword, {
+    stage = 'password hashing';
+    const passwordHash = await argon2.hash(password, {
       type: argon2.argon2id,
       memoryCost: 65536,
       timeCost: 3,
       parallelism: 4,
     });
 
-    if (identity) {
-      console.log(`Existing user found with ID: ${identity.userId}. Updating password and verifying role...`);
-      await prisma.userIdentity.update({
-        where: { id: identity.id },
+    stage = 'account creation';
+    await prisma.$transaction(async tx => {
+      stage = 'user record creation';
+      const user = await tx.user.create({
         data: {
+          cnic,
+          displayName,
+          status: UserStatus.ACTIVE,
+          preferredLocale: 'ur-PK',
+        },
+      });
+
+      stage = 'CNIC login identity creation';
+      await tx.userIdentity.create({
+        data: {
+          userId: user.id,
+          identityType: IdentityType.CNIC,
+          normalizedValue: cnic,
           passwordHash,
-          verifiedAt: new Date(),
+          isPrimary: true,
         },
       });
 
-      // Ensure ADMIN role assignment exists
-      const existingAssignment = await prisma.userRoleAssignment.findUnique({
-        where: {
-          userId_roleId: {
-            userId: identity.userId,
-            roleId: adminRole.id,
-          },
-        },
-      });
-
-      if (!existingAssignment) {
-        await prisma.userRoleAssignment.create({
-          data: {
-            userId: identity.userId,
-            roleId: adminRole.id,
-          },
-        });
-      }
-      console.log(`✓ Admin credentials and ADMIN role assignment confirmed for: ${normalizedEmail}`);
-    } else {
-      // Create user within atomic transaction
-      const newUser = await prisma.$transaction(async tx => {
-        const user = await tx.user.create({
-          data: {
-            status: UserStatus.ACTIVE,
-            preferredLocale: 'ur-PK',
-          },
-        });
-
+      if (phone) {
+        stage = 'phone identity creation';
         await tx.userIdentity.create({
           data: {
             userId: user.id,
-            identityType: IdentityType.EMAIL,
-            normalizedValue: normalizedEmail,
-            passwordHash,
-            isPrimary: true,
-            verifiedAt: new Date(),
+            identityType: IdentityType.PHONE,
+            normalizedValue: phone,
+            isPrimary: false,
           },
         });
+      }
 
-        await tx.userRoleAssignment.create({
-          data: {
-            userId: user.id,
-            roleId: adminRole.id,
-          },
-        });
-
-        return user;
+      stage = 'administrator role assignment';
+      await tx.userRoleAssignment.create({
+        data: {
+          userId: user.id,
+          roleId: adminRole.id,
+        },
       });
+    });
 
-      console.log(`✓ Admin user successfully provisioned with ID: ${newUser.id}`);
-    }
-
-    console.log(`✓ Admin account is active and ready for administrative login.`);
-    console.log(`====================================================\n`);
-  } catch (error) {
-    console.error('❌ Failed to provision admin account:', error);
-    process.exit(1);
+    console.log('Administrator account provisioned. Identity evidence remains unverified until independently reviewed.');
+  } catch (error: unknown) {
+    const code = error && typeof error === 'object' && 'code' in error && typeof error.code === 'string'
+      ? error.code
+      : 'UNKNOWN';
+    const errorType = error instanceof Error ? error.name : 'UnknownError';
+    console.error(`Failed to provision the administrator during ${stage} (${errorType}, code: ${code}). No CNIC or password details were logged.`);
+    process.exitCode = 1;
   } finally {
     await prisma.$disconnect();
   }
 }
 
-seedAdmin();
+void seedAdmin();

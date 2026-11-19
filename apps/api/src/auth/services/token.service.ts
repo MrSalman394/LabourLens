@@ -2,7 +2,7 @@ import { Injectable, UnauthorizedException, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../../prisma/prisma.service';
 import { JwtPayload, TokenRefreshResponse } from '../interfaces/auth.interfaces';
-import { UserRole, UserStatus } from '@prisma/client';
+import { IdentityType, UserRole, UserStatus } from '@prisma/client';
 import * as crypto from 'crypto';
 
 @Injectable()
@@ -134,11 +134,11 @@ export class TokenService {
       data: { revokedAt: new Date() },
     });
 
-    const primaryIdentity = user.identities.find(i => i.isPrimary) || user.identities[0];
+    const emailIdentity = user.identities.find(i => i.identityType === IdentityType.EMAIL);
     const roles = user.roleAssignments.map(a => a.role.code as UserRole);
 
     // Create fresh session
-    const tokens = await this.createSession(user, primaryIdentity?.normalizedValue || '', roles, userAgent, ipAddress);
+    const tokens = await this.createSession(user, emailIdentity?.normalizedValue || '', roles, userAgent, ipAddress);
 
     return {
       accessToken: tokens.accessToken,

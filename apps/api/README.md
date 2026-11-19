@@ -21,3 +21,9 @@ Core REST and WebSocket API service managing authentication, business logic, int
 
 Never put a real connection string in source control. `.env` is ignored by Git. Use the same Prisma migration history and a deployment-specific `DATABASE_URL` when moving to Neon.
 
+## Administrator provisioning
+
+Public registration cannot assign the administrator role. Provision administrators only through the private API CLI after configuring `ADMIN_CNIC`, `ADMIN_NAME`, `ADMIN_PHONE` (optional), and `ADMIN_PASSWORD` in a secure process environment or secrets manager. Then build the API and run `npm run seed:admin`.
+
+The CLI hashes passwords with Argon2id, stores the CNIC as a normalized string, and refuses to modify an existing account. Admin sign-in uses CNIC and password. It does not set identity evidence as verified; CNIC by itself is not proof of identity. Never put real provisioning values in source control or command arguments.
+
