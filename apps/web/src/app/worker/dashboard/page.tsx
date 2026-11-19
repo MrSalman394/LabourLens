@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { BrandMark } from "@/components/brand-mark";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { WorkerProfileView } from "@/components/profile/worker-profile-view";
 import { ApiClient } from "@/lib/api";
 import {
@@ -76,6 +77,7 @@ export default function WorkerDashboardPage() {
             </div>
 
             <div className="flex items-center gap-3">
+              <ThemeToggle />
               <div className="hidden text-right text-xs sm:block">
                 <p className="font-semibold text-slate-900">{user?.displayName || user?.email || "Skilled Worker"}</p>
                 <p className="text-slate-500 font-medium">{user?.email || "Verified Member"}</p>

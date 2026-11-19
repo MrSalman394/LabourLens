@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { ApiClient } from "@/lib/api";
 import {
   Mail,
@@ -37,9 +38,10 @@ export default function ForgotPasswordPage() {
   return (
     <main className="flex min-h-screen items-center justify-center px-4 py-12 bg-[#f8faf8]">
       <div className="w-full max-w-md">
-        <Link href="/" className="inline-block mb-8" aria-label="LabourLens Home">
-          <BrandMark />
-        </Link>
+        <div className="mb-8 flex items-center justify-between">
+          <Link href="/" aria-label="LabourLens Home"><BrandMark /></Link>
+          <ThemeToggle />
+        </div>
 
         <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-9">
           <div className="flex items-center gap-2">

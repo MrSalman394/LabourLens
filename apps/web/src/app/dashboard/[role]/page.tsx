@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { WorkerProfileView } from "@/components/profile/worker-profile-view";
 import { EmployerProfileView } from "@/components/profile/employer-profile-view";
 import { ApiClient } from "@/lib/api";
@@ -132,6 +133,7 @@ export default function RoleDashboardPage({ params }: { params: { role: string }
           </div>
 
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             {tokenExists ? (
               <>
                 <div className="hidden text-right text-xs sm:block">

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { BrandMark } from "@/components/brand-mark";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigation = [
   { label: "Home", href: "#home", id: "home" },
@@ -66,14 +67,18 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden shrink-0 items-center gap-2 md:flex">
+          <ThemeToggle />
           <Link href="/login" className="header-login">Login</Link>
           <Link href="/register" className="header-create">Create account</Link>
           <Link href="/register?role=employer" className="header-start">Get started <ArrowUpRight aria-hidden="true" className="h-4 w-4" /></Link>
         </div>
 
-        <button type="button" className="mobile-menu-button xl:hidden" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
-          {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 xl:hidden">
+          <ThemeToggle />
+          <button type="button" className="mobile-menu-button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {menuOpen && <div className="mobile-menu xl:hidden">

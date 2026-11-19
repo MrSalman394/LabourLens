@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { BrandMark } from "@/components/brand-mark";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { ApiClient } from "@/lib/api";
 import {
   ShieldCheck,
@@ -82,6 +83,7 @@ export default function AdminDashboardPage() {
             </div>
 
             <div className="flex items-center gap-3">
+              <ThemeToggle />
               <div className="hidden text-right text-xs sm:block">
                 <p className="font-semibold text-slate-900">{user?.displayName || "System Administrator"}</p>
                 <p className="text-slate-500 font-medium">{user?.email || "admin@labourlens.pk"}</p>
