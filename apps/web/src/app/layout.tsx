@@ -4,6 +4,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "LabourLens | Find Work. Hire Skills. Connect Intelligently.",
   description: "Discover skilled professionals, find meaningful employment, and connect through explainable AI-powered matching in Pakistan.",
+  icons: {
+    icon: "/labourlens-icon.svg",
+    shortcut: "/labourlens-icon.svg",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
